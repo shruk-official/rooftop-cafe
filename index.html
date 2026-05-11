@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SkyBrown Rooftop Café - A premium futuristic rooftop lounge experience with cinematic storytelling, immersive motion, and luxury glassmorphism design." />
+    <title>SkyBrown Rooftop Café</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preload" as="image" href="./public/hero-poster.png" />
+  </head>
+  <body>
+    <div class="preloader">
+      <div class="preloader__content">
+        <div class="preloader__logo">SkyBrown</div>
+        <div class="preloader__tagline">Sip the Skyline.</div>
+        <div class="preloader__bar">
+          <div class="preloader__progress"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-progress"></div>
+
+    <div class="page-shell">
+
+      <header class="navbar">
+        <div class="navbar__inner">
+          <div class="navbar__brand">SkyBrown</div>
+          <nav class="navbar__nav" id="desktopNav">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#drinks">Menu</a>
+            <a href="#reserve">Reservations</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <button class="navbar__toggle" id="menuToggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero" id="hero">
+          <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="./public/hero-poster.png">
+            <source src="./public/homepage%20video.mp4" type="video/mp4" />
+          </video>
+          <div class="hero__canvas" aria-hidden="true"></div>
+          <div class="hero__overlay"></div>
+          <div class="hero__panel" data-reveal>
+
+
+            <div class="hero__eyebrow">Rooftop lounge • sunset evenings • calm luxury</div>
+            <h1>
+              Where Coffee Meets The Skyline
+              <span>A premium rooftop café experience in the heart of a futuristic city.</span>
+            </h1>
+            <p>
+              A warm sunset refuge above the city, created for intimate conversations, handcrafted drinks, and quiet moments that feel unforgettable.
+            </p>
+            <p class="hero__subtext">Open daily from sunset until midnight — reservations recommended for skyline tables.</p>
+            <div class="hero__actions">
+              <a href="#reserve" class="btn btn--primary">Reserve Your Table</a>
+              <a href="#drinks" class="btn btn--ghost">View the Menu</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--split" id="about">
+          <div class="section__meta" data-reveal-left>
+            <span class="section__eyebrow">About the Café</span>
+            <h2>A rooftop sanctuary shaped by night, warmth, and cinematic design.</h2>
+            <p>
+              SkyBrown blends futuristic architecture with luxury hospitality. Every corner is designed for immersive comfort, modern rituals, and an unforgettable evening under the city lights.
+            </p>
+          </div>
+          <div class="about__grid">
+            <div class="about__image about__image--one" data-reveal-left></div>
+            <div class="about__image about__image--two" data-reveal-right></div>
+            <div class="about__text" data-reveal-up>
+              <p>
+                The lounge combines glassmorphism, soft neon lighting, and layered depth effects to build a premium environment where every drink becomes a cinematic moment.
+              </p>
+              <p>
+                Cozy luxury seating, curated coffee rituals, and rooftop skyline views create the ideal setting for intimate conversations or elevated nights with friends.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--cards" id="drinks">
+          <div class="section__header" data-reveal>
+            <span class="section__eyebrow">Signature Drinks</span>
+            <h2>Curated cocktails and timeless coffee moments.</h2>
+          </div>
+          <div class="cards-grid">
+            <article class="drink-card" data-reveal-left>
+              <div class="drink-card__visual drink-card__visual--latte"></div>
+              <div class="drink-card__body">
+                <h3>Midnight Espresso</h3>
+                <p>Velvety espresso, dark honey, and a whisper of smoked cedar.</p>
+              </div>
+            </article>
+            <article class="drink-card" data-reveal-up>
+              <div class="drink-card__visual drink-card__visual--cocktail"></div>
+              <div class="drink-card__body">
+                <h3>Neon Sunset</h3>
+                <p>Champagne, blood orange, and a soft glow of citrus spice.</p>
+              </div>
+            </article>
+            <article class="drink-card" data-reveal-right>
+              <div class="drink-card__visual drink-card__visual--dessert"></div>
+              <div class="drink-card__body">
+                <h3>Gold Leaf Affogato</h3>
+                <p>Silken gelato, espresso shot, and edible gold shimmer.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section--event" id="music">
+          <div class="section__header" data-reveal-up>
+            <span class="section__eyebrow">Live Music Nights</span>
+            <h2>Atmospheric nights with refined beats and glowing rhythms.</h2>
+          </div>
+          <div class="event-grid">
+            <div class="event-list" data-reveal-left>
+              <article>
+                <span>FRI</span>
+                <h3>Piano & Chill</h3>
+                <p>Velvet jazz melodies above the skyline.</p>
+              </article>
+              <article>
+                <span>SAT</span>
+                <h3>Electro Lounge</h3>
+                <p>Soft synths, light waves, and intimate lounge flow.</p>
+              </article>
+              <article>
+                <span>SUN</span>
+                <h3>Sunset Sessions</h3>
+                <p>Warm cocktails and acoustic rhythms at golden hour.</p>
+              </article>
+            </div>
+            <div class="event-video" data-reveal-right>
+              <div class="event-video__frame">
+                <div class="event-video__pulse"></div>
+                <div class="event-video__placeholder"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section section--testimonials" id="testimonials">
+          <div class="section__header" data-reveal>
+            <span class="section__eyebrow">Testimonials</span>
+            <h2>Stories from guests who linger in the glow.</h2>
+          </div>
+          <div class="testimonial-slider" data-reveal>
+            <div class="testimonial-card">
+              <p>"A cinematic rooftop escape — the service, the atmosphere, and the flavors all feel like an award-winning experience."</p>
+              <span>— Aria L.</span>
+            </div>
+
+            <div class="testimonial-card">
+              <p>"Every sip, every note, every light feels curated. It’s the best rooftop lounge I’ve discovered."</p>
+              <span>— Julian M.</span>
+            </div>
+            <div class="testimonial-card">
+              <p>"SkyBrown makes evenings feel like a luxurious film moment. The view and the cocktails are unforgettable."</p>
+              <span>— Naomi T.</span>
+            </div>
+          </div>
+          <div class="testimonial-dots">
+            <span class="active"></span>
+            <span></span>
+            <span></span>
+          </div>
+
+        </section>
+
+        <section class="section section--reserve" id="reserve">
+          <div class="section__header" data-reveal>
+            <span class="section__eyebrow">Reservation</span>
+            <h2>Book your private rooftop evening.</h2>
+          </div>
+          <form class="reserve-form" data-reveal>
+            <div class="reserve-grid">
+              <label>
+                Name
+                <input type="text" placeholder="Your full name" />
+              </label>
+              <label>
+                Date
+                <input type="date" />
+              </label>
+              <label>
+                Guests
+                <select>
+                  <option>2 guests</option>
+                  <option>4 guests</option>
+                  <option>6 guests</option>
+                  <option>8 guests</option>
+                </select>
+              </label>
+              <label class="reserve-message">
+                Special request
+                <textarea placeholder="A table with a skyline view..."></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--reserve">Confirm</button>
+          </form>
+        </section>
+
+        <section class="section section--contact" id="contact">
+          <div class="section__header" data-reveal-up>
+            <span class="section__eyebrow">Contact</span>
+            <h2>Reach out for private events and rooftop celebrations.</h2>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-panel" data-reveal-left>
+              <span class="section__eyebrow">Connect</span>
+              <h3>Plan your next elevated night.</h3>
+              <p>
+                Send us a message for private dinner experiences, bottle service, or special event bookings. Our rooftop concierge is ready to curate your perfect evening.
+              </p>
+              <div class="contact-details">
+                <div>
+                  <strong>Phone</strong>
+                  <p>+1 (555) 012-9876</p>
+                </div>
+                <div>
+                  <strong>Email</strong>
+                  <p>hello@skybrowncafe.com</p>
+                </div>
+                <div>
+                  <strong>Location</strong>
+                  <p>Skyline Tower, 324 Neon Avenue, Downtown</p>
+                </div>
+              </div>
+            </div>
+            <form class="reserve-form contact-form" data-reveal-right>
+              <div class="reserve-grid">
+                <label>
+                  Name
+                  <input type="text" placeholder="Your name" />
+                </label>
+                <label>
+                  Email
+                  <input type="email" placeholder="you@example.com" />
+                </label>
+                <label>
+                  Event type
+                  <select>
+                    <option>Intimate dinner</option>
+                    <option>Live music night</option>
+                    <option>Private celebration</option>
+                  </select>
+                </label>
+                <label class="reserve-message">
+                  Message
+                  <textarea placeholder="Tell us about your request..."></textarea>
+                </label>
+              </div>
+              <button type="submit" class="btn btn--ghost btn--reserve">Send Message</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer" id="contact" data-reveal>
+        <div>
+          <p>SkyBrown Rooftop Café</p>
+          <p>Luxury rooftop lounge in the heart of a neon city.</p>
+        </div>
+        <div class="footer__links">
+          <a href="#">Instagram</a>
+          <a href="#">Email</a>
+          <a href="#">Contact</a>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
