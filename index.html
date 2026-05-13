@@ -7,9 +7,9 @@
     <title>SkyBrown Rooftop Café</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="/style.css" />
-    <link rel="preload" as="image" href="./public/hero-poster.png" />
   </head>
   <body>
     <div class="preloader">
@@ -45,7 +45,7 @@
 
       <main>
         <section class="hero" id="hero">
-          <video class="hero__video" autoplay muted loop playsinline preload="auto" poster="./public/hero-poster.png">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata">
             <source src="./public/homepage%20video.mp4" type="video/mp4" />
           </video>
           <div class="hero__canvas" aria-hidden="true"></div>

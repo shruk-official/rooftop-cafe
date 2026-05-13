@@ -274,7 +274,7 @@ img {
   padding: 2rem;
   overflow: hidden;
   perspective: 1400px;
-  background: #000 !important;
+  background: linear-gradient(180deg, #3d1f25 0%, #1e0f14 50%, #16080f 100%);
 }
 
 
@@ -284,17 +284,16 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
+  opacity: 1;
   filter: brightness(0.94) contrast(1.04) saturate(1.12) sepia(0.03);
   transform: scale(1.02) translateY(calc(var(--scroll-y) * 0.4));
   z-index: 0;
   will-change: transform, opacity;
-  background: #000;
-  animation: videoFadeIn 2s ease forwards;
+  background: transparent;
 }
 
-@keyframes videoFadeIn {
-  to { opacity: 1; }
+.hero__video.is-playing {
+  opacity: 1;
 }
 
 
@@ -731,18 +730,22 @@ img {
   min-height: 280px;
   background-size: cover;
   background-position: center;
+  background-color: #2a1a12;
 }
 
 .drink-card__visual--latte {
   background-image: linear-gradient(145deg, rgba(255, 191, 143, 0.33), rgba(143, 88, 43, 0.35)), url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80');
+  background-color: #3d2516;
 }
 
 .drink-card__visual--cocktail {
   background-image: linear-gradient(145deg, rgba(255, 114, 114, 0.2), rgba(90, 46, 34, 0.28)), url('./public/Neon%20Sunset.webp');
+  background-color: #2e1818;
 }
 
 .drink-card__visual--dessert {
   background-image: linear-gradient(145deg, rgba(255, 244, 211, 0.24), rgba(54, 42, 27, 0.4)), url('./public/Gold%20Leaf%20Affogato.webp');
+  background-color: #2a231a;
 }
 
 .drink-card__body {
