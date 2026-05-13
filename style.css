@@ -274,7 +274,10 @@ img {
   padding: 2rem;
   overflow: hidden;
   perspective: 1400px;
-  background: linear-gradient(180deg, #3d1f25 0%, #1e0f14 50%, #16080f 100%);
+  background:
+    linear-gradient(180deg, rgba(61, 31, 37, 0.4) 0%, rgba(30, 15, 20, 0.5) 50%, rgba(22, 8, 15, 0.7) 100%),
+    url('./public/hero-poster.png') center / cover no-repeat;
+  background-color: #2a1510;
 }
 
 
@@ -284,12 +287,13 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 1;
+  opacity: 0;
   filter: brightness(0.94) contrast(1.04) saturate(1.12) sepia(0.03);
   transform: scale(1.02) translateY(calc(var(--scroll-y) * 0.4));
   z-index: 0;
   will-change: transform, opacity;
   background: transparent;
+  transition: opacity 0.8s ease;
 }
 
 .hero__video.is-playing {

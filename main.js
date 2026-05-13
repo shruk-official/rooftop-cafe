@@ -194,12 +194,43 @@ animateHeroBackground();
 
 // ============================================================
 // H: Video playback — resilient, no dark flash
+// The video starts HIDDEN (opacity: 0 in CSS).
+// It only becomes visible after we CONFIRM it's rendering
+// live animated frames — never a frozen dim first frame.
+// The hero poster background shows beautifully in the meantime.
 // ============================================================
 function ensureVideoPlays() {
   if (!video) return;
 
-  // The video is visible by default (CSS opacity: 1) so there's no dark flash.
-  // We just need to ensure it actually plays.
+  let hasRevealed = false;
+
+  // Only reveal the video once it's genuinely playing motion
+  function revealVideo() {
+    if (hasRevealed) return;
+    hasRevealed = true;
+    video.classList.add('is-playing');
+  }
+
+  // Listen for 'playing' event — fires when the video is actually
+  // rendering frames (not just loaded metadata or frozen)
+  video.addEventListener('playing', () => {
+    // Double-check: wait for at least one timeupdate to be sure
+    // the video is producing live frames, not a frozen poster
+    video.addEventListener('timeupdate', function onTime() {
+      video.removeEventListener('timeupdate', onTime);
+      // Use rAF to ensure the frame has actually painted
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          revealVideo();
+        });
+      });
+    });
+  });
+
+  // If the video is already playing (e.g. bfcache restore), reveal it
+  if (!video.paused && video.readyState >= 3 && video.currentTime > 0) {
+    revealVideo();
+  }
 
   let retryCount = 0;
   const maxRetries = 15;
@@ -208,29 +239,23 @@ function ensureVideoPlays() {
     try {
       const playPromise = video.play();
       if (playPromise !== undefined) {
-        playPromise.then(() => {
-          video.classList.add('is-playing');
-        }).catch((err) => {
+        playPromise.catch((err) => {
           if (retryCount < maxRetries) {
             retryCount++;
-            // Exponential backoff for slow connections
             setTimeout(tryPlay, Math.min(300 * retryCount, 3000));
-          } else {
-            // After max retries, video stays visible (warm gradient behind)
-            // No crash, no dark screen — the user sees the site content regardless
-            video.classList.add('is-playing');
           }
+          // If all retries fail, the video stays hidden and
+          // the poster background shows — no crash, no dark flash
         });
       }
     } catch (e) {
-      // Even if video.play() itself throws, the site stays functional
-      video.classList.add('is-playing');
+      // video.play() threw — site stays functional with poster bg
     }
   }
 
   tryPlay();
 
-  // Re-trigger play when tab becomes visible again
+  // Re-trigger play when user returns to the tab
   document.addEventListener('visibilitychange', () => {
     try {
       if (!document.hidden && video.paused) {
@@ -242,18 +267,13 @@ function ensureVideoPlays() {
 
   // Handle video errors (e.g. 404, network failure) gracefully
   video.addEventListener('error', () => {
-    // Video failed to load — just hide it so the warm gradient background shows
+    // Video failed — keep it hidden, poster background is showing
     video.style.display = 'none';
   });
 
-  // Handle stalling on slow connections
-  video.addEventListener('stalled', () => {
-    // Don't crash — the video element stays visible, it will resume when data arrives
-  });
-
-  video.addEventListener('waiting', () => {
-    // Video is buffering — no action needed, it auto-resumes
-  });
+  // Stalling/buffering on slow connections — no crash, just waits
+  video.addEventListener('stalled', () => { /* auto-resumes */ });
+  video.addEventListener('waiting', () => { /* auto-resumes */ });
 }
 
 ensureVideoPlays();
